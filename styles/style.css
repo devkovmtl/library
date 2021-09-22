@@ -21,7 +21,9 @@ body {
 }
 
 .header {
-  background-color: aqua;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0 1px 9px rgb(0 0 0 / 23%);
   position: fixed;
   top: 0;
   left: 0;
@@ -40,28 +42,43 @@ body {
   text-shadow: 2px 2px rgb(0 0 0 / 23%);
 }
 
-.add-btn {
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  color: #fff;
+  border-radius: 8px;
   padding: 0.5rem 1rem;
-  font-weight: 600;
-  font-size: 1.2rem;
-  border-radius: 0.3rem;
-  display: block;
+  font-weight: 500;
+  font-size: 1.4rem;
+  border-radius: 0.4rem;
+}
+
+.btn span {
+  margin-right: 8px;
+}
+
+.add-btn {
   margin: 2rem auto 1.2rem;
+  background-color: #6c757d;
+  transform: all ease-in 200ms;
 }
 
 .add-btn:hover {
   cursor: pointer;
+  background-color: #4c5358;
 }
 
 .card-list {
-  margin-top: 117px !important;
+  margin-top: 127px !important;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
   width: 80%;
-  gap: 18px;
-  padding: 1.2rem 2rem;
+  gap: 24px;
+  padding: 1.8rem 0 2rem;
 }
 
 .card {
@@ -73,19 +90,53 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  background-color: #fff;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
 }
 
 .card-title h2 {
   width: 100%;
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   font-weight: 600;
 }
 
 .card-body {
   width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.card-body p {
+  color: #6c757d;
+  font-size: 1.7rem;
+  text-align: left;
+  margin: 1.2rem 0;
+}
+
+.read {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 0.8rem 0;
+}
+
+.read #read_check {
+  margin-right: 8px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  transform: all ease 500ms;
+}
+
+.btn-delete:hover {
+  cursor: pointer;
+  background-color: #ce303f;
+}
 /* Mobile first queries */
 
 /* Larger than mobile */
@@ -101,7 +152,7 @@ body {
   }
 
   .card-list {
-    margin-top: 163px !important;
+    margin-top: 173px !important;
   }
 }
 
