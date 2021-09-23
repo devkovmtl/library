@@ -1,62 +1,97 @@
-// const myTableLibrary = document.querySelector('table#myLibrary')
-// let myLibrary = []
+const listBooks = document.querySelector('.card-list')
+const addBtn = document.querySelector('.add-btn')
+const modalContainer = document.querySelector('.modal-container')
 
-// function Book(title, author, pages, read) {
-//   // constructor
-//   this.title = title
-//   this.author = author
-//   this.pages = pages
-//   this.read = read
-//   this.info = function () {
-//     return `${this.title} by ${this.author}, ${this.pages} pages, ${
-//       this.read ? 'already read' : 'not read yet'
-//     }.`
-//   }
-// }
+let myLibrary = []
+let isModalOpen = false
 
-// function addBookToLibrary(book) {
-//   myLibrary.push(book)
-// }
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+  }
 
-// const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false)
+  info() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${
+      this.read ? 'already read' : 'not read yet'
+    }.`
+  }
 
-// addBookToLibrary(theHobbit)
+  toggleRead() {
+    this.read = !this.read
+  }
+}
 
-// function displayBooks() {
-//   let tr = document.createElement('tr')
-//   myLibrary.forEach((book) => {
-//     for (let k in book) {
-//       if (k === 'title' || k === 'author' || k === 'pages' || k === 'read') {
-//         let td = document.createElement('td')
-//         td.textContent = book[k]
-//         tr.appendChild(td)
-//       }
-//     }
-//   })
-//   // myTableLibrary.appendChild(tr)
-// }
+function addBookToLibrary(book) {
+  myLibrary.push(book)
+}
 
-// displayBooks()
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false)
+const harrySorcerySchool = new Book('Harry Potter', 'J.K. Rowling', 304, true)
 
-// {
-//   /* <div class="custom-control custom-switch">
-//   <input type="checkbox" class="custom-control-input" id="customSwitch1">
-//   <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-// </div> */
-// }
+addBookToLibrary(theHobbit)
+addBookToLibrary(harrySorcerySchool)
 
-// // const cat = {
-// //   init: function (sound) {
-// //     this.sound = sound
-// //     // we can chain
-// //     return this
-// //   },
-// //   makeSound: function () {
-// //     console.log(this.sound)
-// //   },
-// // }
-// // const mark = Object.create(cat).init('mewuFF')
-// // mark.makeSound()
+function generateId() {
+  return `${Date.now() + Math.floor(Math.random() * 10000)}`
+}
 
-// // const waffles = Object.create(cat).init('mrrOff')
-// // waffles.makeSound()
+function buildCardComponent(title, author, pages, read) {
+  console.log(read)
+  const card = document.createElement('div')
+  card.setAttribute('class', 'card')
+
+  card.innerHTML = `
+  <div class="card-title" data-id=${generateId(title, author)}>
+    <h2>${title}</h2>
+    <h3>${author}</h3>
+  </div>
+  <div class="card-body">
+    <p>${pages} pages</p>
+    <div class="read">
+      <input type="checkbox" id="read_check" ${read ? 'checked' : ''} /> ${
+    read ? 'Read' : 'Not Read Yet'
+  }
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-delete">
+      <span class="material-icons material-icons-two-tone">
+        delete_forever
+      </span>
+      Delete
+    </button>
+  </div>
+  `
+
+  return card
+}
+
+function displayBooks() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    let book = myLibrary[i]
+    const card = buildCardComponent(
+      book.title,
+      book.author,
+      book.pages,
+      book.read
+    )
+    listBooks.appendChild(card)
+  }
+}
+
+displayBooks()
+
+function toggleModal(e) {
+  if (isModalOpen) {
+    modalContainer.style.display = 'none'
+  } else {
+    modalContainer.style.display = 'flex'
+  }
+  isModalOpen = !isModalOpen
+}
+
+addBtn.addEventListener('click', toggleModal)
+modalContainer.addEventListener('click', toggleModal)

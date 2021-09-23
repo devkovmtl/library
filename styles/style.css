@@ -23,7 +23,7 @@ body {
 .header {
   background-color: #fff;
   z-index: 10;
-  box-shadow: 0 1px 9px rgb(0 0 0 / 23%);
+  box-shadow: 0 1px 9px rgb(0 0 0 / 19%);
   position: fixed;
   top: 0;
   left: 0;
@@ -101,6 +101,15 @@ body {
   font-weight: 600;
 }
 
+.card-title h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: #6c757d;
+  margin-top: 1.4rem;
+}
+
 .card-body {
   width: 100%;
   width: 100%;
@@ -128,6 +137,11 @@ body {
   margin-right: 8px;
 }
 
+.read p {
+  font-size: 1.4rem;
+  color: #000;
+}
+
 .btn-delete {
   background-color: #dc3545;
   transform: all ease 500ms;
@@ -137,6 +151,20 @@ body {
   cursor: pointer;
   background-color: #ce303f;
 }
+
+.modal-container {
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Mobile first queries */
 
 /* Larger than mobile */
