@@ -165,6 +165,30 @@ body {
   justify-content: center;
 }
 
+.btn-success {
+  background-color: #28a745;
+}
+.btn-success:hover {
+  cursor: pointer;
+  background-color: #1e7832;
+}
+
+.form {
+  background-color: blue;
+  padding: 1.2rem 1rem;
+}
+
+.form-control {
+  padding: 0.8rem 0.4rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.card-form-footer {
+  display: flex;
+}
+
 /* Mobile first queries */
 
 /* Larger than mobile */

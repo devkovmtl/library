@@ -1,6 +1,7 @@
 const listBooks = document.querySelector('.card-list')
 const addBtn = document.querySelector('.add-btn')
 const modalContainer = document.querySelector('.modal-container')
+const cancelBtnModal = document.querySelector('#cancelModal')
 
 let myLibrary = []
 let isModalOpen = false
@@ -94,4 +95,4 @@ function toggleModal(e) {
 }
 
 addBtn.addEventListener('click', toggleModal)
-modalContainer.addEventListener('click', toggleModal)
+cancelBtnModal.addEventListener('click', toggleModal)
