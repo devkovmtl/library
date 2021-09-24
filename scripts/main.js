@@ -40,6 +40,7 @@ function onSubmitForm(e) {
   if (title && author && pages) {
     const newBook = new Book(title, author, pages, read)
     myLibrary.insert(newBook)
+    addBookForm.reset()
     toggleModal()
     displayBooks(myLibrary.library)
   }
