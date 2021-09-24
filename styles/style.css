@@ -174,7 +174,6 @@ body {
 }
 
 .form {
-  background-color: blue;
   padding: 1.2rem 1rem;
 }
 
@@ -185,8 +184,26 @@ body {
   align-items: center;
 }
 
+.form-control label {
+  width: 48px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 .card-form-footer {
   display: flex;
+  flex-direction: row-reverse;
+}
+
+.card-form-footer button#cancelModal {
+  margin-right: 0.4rem;
+}
+
+input.valid {
+  border-color: #36cc36;
+}
+input.invalid {
+  border-color: orange;
 }
 
 /* Mobile first queries */
