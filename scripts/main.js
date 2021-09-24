@@ -10,9 +10,14 @@ const harrySorcerySchool = new Book('Harry Potter', 'J.K. Rowling', 304, true)
 addBookToLibrary(theHobbit)
 addBookToLibrary(harrySorcerySchool)
 
-function displayBooks() {
-  for (let i = 0; i < myLibrary.library.length; i++) {
-    let book = myLibrary.library[i]
+function addBookToLibrary(book) {
+  myLibrary.insert(book)
+}
+
+function displayBooks(library) {
+  listBooks.innerHTML = ``
+  for (let i = 0; i < library.length; i++) {
+    let book = library[i]
     console.log(book)
     const card = buildCardComponent(
       book.id,
@@ -36,7 +41,7 @@ function onSubmitForm(e) {
     const newBook = new Book(title, author, pages, read)
     myLibrary.insert(newBook)
     toggleModal()
-    displayBooks()
+    displayBooks(myLibrary.library)
   }
 }
 
@@ -52,8 +57,17 @@ function handleClickOnList(e) {
       element.nextElementSibling.innerText = isRead ? 'Read' : 'Not Read Yet'
     }
   }
+
+  if (element.matches('button#delete-book')) {
+    const bookId = element.dataset.id
+    const book = myLibrary.library.find((b) => b.id === +bookId)
+    if (book) {
+      myLibrary.delete(book.id)
+      displayBooks(myLibrary.library)
+    }
+  }
 }
 
 addBookForm.addEventListener('submit', onSubmitForm)
 listBooks.addEventListener('click', handleClickOnList)
-displayBooks()
+displayBooks(myLibrary.library)

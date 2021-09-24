@@ -8,14 +8,7 @@ class Library {
   }
 
   delete(bookId) {
-    this.library = [
-      ...this.library.filter((b) => {
-        b.id !== bookId
-      }),
-    ]
+    const newLibrary = this.library.filter((b) => b.id !== bookId)
+    this.library = [...newLibrary]
   }
-}
-
-function addBookToLibrary(book) {
-  myLibrary.insert(book)
 }
