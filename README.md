@@ -5,7 +5,7 @@ from the Odin Project\'s [curriculum]
 
 Simple Library app to track book to read
 
-## Build
+## Build with:
 
 - HTML
 - CSS
