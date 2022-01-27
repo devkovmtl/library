@@ -5,10 +5,14 @@ from the Odin Project\'s [curriculum]
 
 Simple Library app to track book to read
 
+Project [demo](https://devkovmtl.github.io/library/)
+
 ## Build with:
 
 - HTML
 - CSS
 - JAVASCRIPT
+
+## Used in this project:
 
 - Material Icons
